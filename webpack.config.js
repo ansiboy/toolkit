@@ -17,7 +17,7 @@ module.exports = {
     },
     mode: 'development',
     devtool: 'source-map',
-    externals: ['node-fetch'],
+    externals: ['node-fetch', "maishu-wuzhui", "lessjs"],
     plugins: [
         new webpack.BannerPlugin(license),
     ]
