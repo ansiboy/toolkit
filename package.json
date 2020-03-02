@@ -6,9 +6,7 @@
     "scripts": {
         "build": "grunt"
     },
-    "dependencies": {
-        "maishu-ui-toolkit": "file:../ui-toolkit"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@babel/core": "^7.4.4",
         "@babel/preset-env": "^7.4.4",
