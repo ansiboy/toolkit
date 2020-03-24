@@ -26,6 +26,10 @@ export class Errors {
         error.name = name;
         return error;
     }
+    queryResultTypeError() {
+        let msg = 'Type of the query result is expected as Array or DataSourceSelectResult.';
+        return new Error(msg);
+    }
 }
 
 export let errors = new Errors();
