@@ -1,4 +1,4 @@
-import { errors as baseErrors } from "./Errors";
+import { errors as baseErrors } from "./errors";
 import { Callback } from "./callback";
 
 let errors = Object.assign(baseErrors, {
