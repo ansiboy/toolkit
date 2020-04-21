@@ -10,7 +10,7 @@ export function pathContact(...paths: string[]) {
         return paths[0]
     }
 
-    let str = paths.join("");
+    let str = paths.join("/");
     // 将一个或多个的 / 变为一个 /，例如：/shop/test// 转换为 /shop/test/
     str = str.replace(/\/+/g, '/');
 
