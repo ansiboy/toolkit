@@ -14,6 +14,10 @@ let errors = Object.assign(baseErrors, {
     primaryKeyNull(key: string) {
         let msg = `Primary key named '${key}' value is null.`;
         return new Error(msg);
+    },
+    queryResultTypeError() {
+        let msg = `Query result type error.`;
+        return new Error(msg);
     }
 });
 
@@ -41,7 +45,7 @@ export class DataSource<T> {
     updating = new Callback<{ sender: DataSource<T>, dataItem: T }>();
     updated = new Callback<{ sender: DataSource<T>, dataItem: T }>();
     selecting = new Callback<{ sender: DataSource<T>, selectArguments: DataSourceSelectArguments }>();;//callbacks<DataSource<T>, DataSourceSelectArguments>();
-    selected = new Callback<{ sender: DataSource<T>, selectResult: DataSourceSelectResult<T> }>(); //callbacks<DataSource<T>, DataSourceSelectResult<T>>();
+    selected = new Callback<{ sender: DataSource<T>, selectResult: DataSourceSelectResult<T>, selectArguments: DataSourceSelectArguments }>(); //callbacks<DataSource<T>, DataSourceSelectResult<T>>();
     error = new Callback<{ sender: DataSource<T>, error: DataSourceError }>();//callbacks<this, DataSourceError>();
 
     constructor(args: DataSourceArguments<T>) {
@@ -175,7 +179,7 @@ export class DataSource<T> {
             else {
                 throw errors.queryResultTypeError();
             }
-            this.selected.fire({ sender: this, selectResult: { totalRowCount, dataItems } });
+            this.selected.fire({ sender: this, selectResult: { totalRowCount, dataItems }, selectArguments: args });
             return { totalRowCount, dataItems };
         }).catch(exc => {
             this.processError(exc, 'select');
