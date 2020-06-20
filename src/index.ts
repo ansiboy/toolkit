@@ -7,3 +7,4 @@ export { parseUrl } from "./url";
 export { deepEqual } from "./deep-equal";
 export { objectAssignDeep } from "./assign-deep";
 export { formatDate } from "./format-date";
+export { HTML } from "./html";
