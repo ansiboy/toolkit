@@ -1,6 +1,6 @@
 {
     "name": "maishu-toolkit",
-    "version": "1.4.4",
+    "version": "1.4.13",
     "main": "./dist/index.js",
     "types": "./out/index.d.ts",
     "scripts": {
@@ -8,6 +8,7 @@
     },
     "dependencies": {},
     "devDependencies": {
+        "csstype": "^2.6.10",
         "@babel/core": "^7.4.4",
         "@babel/preset-env": "^7.4.4",
         "grunt": "^1.0.4",

@@ -1,9 +1,9 @@
 import { errors } from "./errors"
 
 export class HTML {
-    addClassName(sourceClassName: string, addonClassName: string): string
-    addClassName(element: HTMLElement, addonClassName: string): string
-    addClassName(element: string | HTMLElement, addonClassName: string): string {
+    static addClassName(sourceClassName: string, addonClassName: string): string
+    static addClassName(element: HTMLElement, addonClassName: string): string
+    static addClassName(element: string | HTMLElement, addonClassName: string): string {
         if (element == null) throw errors.argumentNull('element')
         if (!addonClassName) throw errors.argumentNull('addonClassName')
 
@@ -26,9 +26,9 @@ export class HTML {
         return className
     }
 
-    removeClassName(sourceClassName: string, targetClassName: string): string
-    removeClassName(element: HTMLElement, targetClassName: string): string
-    removeClassName(element: string | HTMLElement, targetClassName: string): string {
+    static removeClassName(sourceClassName: string, targetClassName: string): string
+    static removeClassName(element: HTMLElement, targetClassName: string): string
+    static removeClassName(element: string | HTMLElement, targetClassName: string): string {
         let sourceClassName: string
         if (typeof element == 'string')
             sourceClassName = element
