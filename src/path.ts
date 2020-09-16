@@ -1,5 +1,5 @@
 /** 连接多个路径 */
-export function pathContact(...paths: string[]) {
+export function pathConcat(...paths: string[]) {
 
     paths = paths || [];
 
@@ -23,3 +23,5 @@ export function pathContact(...paths: string[]) {
 
     return str;
 }
+
+export let pathContact = pathConcat;
