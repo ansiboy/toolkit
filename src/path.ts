@@ -23,5 +23,3 @@ export function pathConcat(...paths: string[]) {
 
     return str;
 }
-
-export let pathContact = pathConcat;
