@@ -77,8 +77,10 @@ export class DataSource<T> {
     }
 
     insert(item: T)
-    insert(item: T, index?: number)
-    insert(item: T, args?: any, index?: number) {
+    insert(item: T, index: number)
+    insert(item: T, args: object)
+    insert(item: T, args: object, index: number)
+    insert(item: T, args?: object | number, index?: number) {
         if (!this.canInsert)
             throw errors.dataSourceCanntInsert();
 
