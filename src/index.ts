@@ -6,6 +6,6 @@ export { DataSource, DataSourceSelectArguments, DataSourceSelectResult, DataSour
 export { parseUrl } from "./url";
 export { deepEqual } from "./deep-equal";
 export { objectAssignDeep } from "./assign-deep";
-export { formatDate } from "./format-date";
+export { formatDate, formatString } from "./format";
 export { HTML } from "./html";
 export { ValueStore, ValueChangedCallback } from "./value-store";

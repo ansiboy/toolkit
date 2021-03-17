@@ -8,3 +8,12 @@ export function formatDate(date: Date | string, showHourMinutes?: boolean): stri
 
     return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 }
+
+export function formatString(pattern: string, ...args: string[]) {
+    let a = pattern;
+    for (let k in args) {
+        a = a.replace("{" + k + "}", args[k])
+    }
+
+    return a;
+}
