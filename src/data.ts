@@ -197,11 +197,11 @@ export class DataSource<T> {
     }
 }
 
-export class DataSourceSelectArguments {
+export class DataSourceSelectArguments<T = any> {
     startRowIndex?: number;
     maximumRows?: number;
     sortExpression?: string;
-    filter?: string;
+    filter?: string | Partial<T>;
 
     constructor() {
         this.startRowIndex = 0;
@@ -211,7 +211,7 @@ export class DataSourceSelectArguments {
 
 export type DataSourceArguments<T> = {
     primaryKeys?: (keyof T)[]
-    select: ((args: DataSourceSelectArguments) => Promise<DataSourceSelectResult<T>>),
+    select: ((args: DataSourceSelectArguments<T>) => Promise<DataSourceSelectResult<T>>),
     insert?: ((item: T, args?: any) => Promise<any>),
     update?: ((item: T, args?: any) => Promise<any>),
     delete?: ((item: T, args?: any) => Promise<any>),
