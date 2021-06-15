@@ -1,6 +1,6 @@
 {
     "name": "maishu-toolkit",
-    "version": "1.6.7",
+    "version": "1.6.11",
     "main": "./dist/index.js",
     "types": "./out/index.d.ts",
     "scripts": {
