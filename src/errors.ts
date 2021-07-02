@@ -26,6 +26,13 @@ export class Errors {
         error.name = name;
         return error;
     }
+    pathStartsHttp(path: string) {
+        let msg = `Path ${path} start with http or https.`;
+        let error = new Error(msg);
+        let name: keyof Errors = "pathStartsHttp";
+        error.name = name;
+        return error;
+    }
 }
 
 export let errors = new Errors();

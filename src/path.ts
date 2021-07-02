@@ -1,25 +1,51 @@
+import { errors } from "./errors";
+
 /** 连接多个路径 */
-export function pathConcat(...paths: string[]) {
+export function pathConcat(path: string, ...otherPaths: string[]) {
 
-    paths = paths || [];
+    let prefix = "";
+    if (path.startsWith("http://"))
+        prefix = "http://";
+    else if (path.startsWith("https://"))
+        prefix = "https://";
 
-    if (paths.length == 0)
-        return "";
-
-    if (paths.length == 1) {
-        return paths[0]
+    path = path.substring(prefix.length);
+    for (let i = 0; i < otherPaths.length; i++) {
+        path = partConcat2(path, otherPaths[i]);
     }
 
-    let str = paths.join("/");
-    // 将一个或多个的 / 或者 变为一个 /，例如：/shop/test// 转换为 /shop/test/
-    // 或者 D:\shop\test\  转换为 D:/shop/test/
-    str = str.replace(/(\/+\\*|\\+\/*)/g, '/');
+    path = prefix + path;
+    return path;
+}
 
-    //======================================================
-    // fixed 把 http:// https:// 变为 http:/ https:/ 的 BUG
-    str = str.replace("http:/", "http://");
-    str = str.replace("https:/", "https://");
-    //======================================================
+export function partConcat2(path1: string, path2: string) {
 
-    return str;
+    if (path1.startsWith("http://") || path1.startsWith("https://"))
+        throw errors.pathStartsHttp(path1);
+
+    if (path2.startsWith("http://") || path2.startsWith("https://"))
+        throw errors.pathStartsHttp(path2);
+
+    path1 = path1.replace(/(\/+\\*|\\+\/*)/g, '/');
+    path2 = path2.replace(/(\/+\\*|\\+\/*)/g, '/');
+
+    let arr1 = path1.split('/');
+    let arr2 = path2.split('/');
+
+
+    while (arr2[0] == "." || arr2[0] == "..") {
+        if (arr2[0] == "..")
+            arr1.pop();
+
+        arr2.shift();
+    }
+
+    path1 = arr1.join('/');
+    path2 = arr2.join('/');
+
+    if (!path1)
+        return path2;
+
+    let path = path1 + '/' + path2;
+    return path;
 }
