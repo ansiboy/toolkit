@@ -29,23 +29,28 @@ export function partConcat2(path1: string, path2: string) {
     path1 = path1.replace(/(\/+\\*|\\+\/*)/g, '/');
     path2 = path2.replace(/(\/+\\*|\\+\/*)/g, '/');
 
-    let arr1 = path1.split('/');
-    let arr2 = path2.split('/');
+    let arr1 = path1.split('/').filter(o => o);
+    let arr2 = path2.split('/').filter(o => o);
+
+    if (path1[0] == "/") {
+        arr1.unshift("")
+    }
+
+
 
 
     while (arr2[0] == "." || arr2[0] == "..") {
-        if (arr2[0] == "..")
+        if (arr2[0] == ".." && arr1.length > 0 && arr1[arr1.length - 1] != "") {
             arr1.pop();
+        }
 
         arr2.shift();
     }
 
-    path1 = arr1.join('/');
-    path2 = arr2.join('/');
+    if (arr1.length == 1 && arr1[0] == "" && arr2.length == 0) {
+        return "/";
+    }
 
-    if (!path1)
-        return path2;
-
-    let path = path1 + '/' + path2;
+    let path = [...arr1, ...arr2].join("/");
     return path;
 }

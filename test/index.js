@@ -45,4 +45,25 @@ describe("pathContact", function () {
         assert.strictEqual(path, "a/c");
     })
 
+    it("test3", function () {
+        let path = pathModule.pathConcat("/", "b");
+        assert.strictEqual(path, "/b");
+    })
+
+    it("test4", function () {
+        let path = pathModule.pathConcat("/", "../");
+        assert.strictEqual(path, "/");
+    })
+
+    
+    it("test5", function () {
+        let path = pathModule.pathConcat("/a/b/c", "../");
+        assert.strictEqual(path, "/a/b");
+    })
+
+    it("test6", function () {
+        let path = pathModule.pathConcat("/a/b/c", "../../../../../");
+        assert.strictEqual(path, "/");
+    })
 })
+
