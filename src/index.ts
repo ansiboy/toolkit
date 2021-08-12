@@ -9,3 +9,4 @@ export { objectAssignDeep } from "./assign-deep";
 export { formatDate, formatString } from "./format";
 export { HTML } from "./html";
 export { ValueStore, ValueChangedCallback } from "./value-store";
+export { SingleInvoke } from "./single-inoke";

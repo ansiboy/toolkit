@@ -27,9 +27,6 @@ export class ValueStore<T> {
         this.items.forEach(o => o.func(value, o.sender));
     }
     get value(): T {
-        if (this._value === undefined)
-            return null
-
         return this._value;
     }
     set value(value: T) {
