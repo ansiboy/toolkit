@@ -48,7 +48,9 @@ module.exports = function (grunt) {
                         }
                     }],
                 ],
-
+                plugins: [
+                    ["@babel/plugin-proposal-class-properties"]
+                ]
             },
             dist: {
                 files: [{
