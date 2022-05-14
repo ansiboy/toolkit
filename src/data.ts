@@ -1,5 +1,5 @@
-import { errors as baseErrors } from "./errors";
-import { Callback } from "./callback";
+import { errors as baseErrors } from "./errors.js";
+import { Callback } from "./callback.js";
 
 let errors = Object.assign(baseErrors, {
     dataSourceCanntInsert() {

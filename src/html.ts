@@ -1,4 +1,4 @@
-import { errors } from "./errors"
+import { errors } from "./errors.js"
 
 export class HTML {
     static addClassName(sourceClassName: string, addonClassName: string): string

@@ -1,4 +1,4 @@
-import { ValueStore } from "./value-store";
+import { ValueStore } from "./value-store.js";
 
 export class SingleInvoke<T> {
 

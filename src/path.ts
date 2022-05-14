@@ -1,4 +1,4 @@
-import { errors } from "./errors";
+import { errors } from "./errors.js";
 
 /** 连接多个路径 */
 export function pathConcat(path: string, ...otherPaths: string[]) {
