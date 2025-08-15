@@ -2,6 +2,8 @@ import { errors } from "./errors.js";
 
 /** 连接多个路径 */
 export function pathConcat(path: string, ...otherPaths: string[]) {
+    if (!path)
+        throw errors.argumentNull("path");
 
     let prefix = "";
     if (path.startsWith("http://"))

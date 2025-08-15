@@ -6,7 +6,7 @@ export { DataSource, DataSourceSelectArguments, DataSourceSelectResult, DataSour
 export { parseUrl } from "./url.js";
 export { deepEqual } from "./deep-equal.js";
 export { objectAssignDeep } from "./assign-deep.js";
-export { formatDate, formatString } from "./format.js";
+export { formatDate, formatString, format } from "./format.js";
 export { HTML } from "./html.js";
 export { ValueStore, ValueChangedCallback } from "./value-store.js";
 export { SingleInvoke } from "./single-inoke.js";

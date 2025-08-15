@@ -202,6 +202,7 @@ export class DataSourceSelectArguments<T = any> {
     maximumRows?: number;
     sortExpression?: string;
     filter?: string | Partial<T>;
+    selection?: string;
 
     constructor() {
         this.startRowIndex = 0;

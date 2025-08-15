@@ -6,14 +6,14 @@ export class Errors {
         return error;
     }
     routeDataFieldNull<T>(fieldName: keyof T): Error {
-        let msg = `The ${fieldName} field of route data cannt be null.`;
+        let msg = `The ${fieldName as string} field of route data cannt be null.`;
         let error = new Error(msg);
         let name: keyof Errors = "routeDataFieldNull";
         error.name = name;
         return error;
     }
     argumentFieldNull<T>(fieldName: keyof T, argumentName: string): Error {
-        let msg = `The ${fieldName} field of ${argumentName} cannt be null.`;
+        let msg = `The ${fieldName as string} field of ${argumentName} cannt be null.`;
         let error = new Error(msg);
         let name: keyof Errors = "argumentFieldNull";
         error.name = name;

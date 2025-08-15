@@ -1,14 +1,14 @@
 {
     "name": "maishu-toolkit",
-    "version": "1.11.1",
+    "version": "1.12.7",
     "main": "./dist/index.js",
     "types": "./out/index.d.ts",
     "scripts": {
-        "build": "grunt"
+        "build": "set NODE_OPTIONS=--openssl-legacy-provider && grunt"
     },
     "dependencies": {
         "@babel/plugin-proposal-class-properties": "^7.16.7",
-        "@types/node": "^17.0.33"
+        "@types/node": "^24.2.1"
     },
     "devDependencies": {
         "@babel/core": "^7.4.4",
